@@ -54,11 +54,38 @@
             </div>
         </div>
         <div class="visual-section">
-            <img src="/assets/IMAGE1.png" alt="Illustration">
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="/assets/IMAGE1.png" alt="Illustration">
+                    <img src="/assets/IMAGE2.png" alt="Illustration">
+                    <img src="/assets/IMAGE3.png" alt="Illustration">
+                </div>
+                <div class="carousel-indicators">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
             <h2>Connect with every application.</h2>
             <p>Everything you need in an easily customizable dashboard.</p>
         </div>
     </div>
-    <script src="scripts.js"></script>
+    <script>
+        let index = 0;
+        function showSlides() {
+            let slides = document.querySelectorAll(".carousel-images img");
+            let dots = document.querySelectorAll(".dot");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                dots[i].classList.remove("active");
+            }
+            index++;
+            if (index > slides.length) { index = 1; }
+            slides[index - 1].style.display = "block";
+            dots[index - 1].classList.add("active");
+            setTimeout(showSlides, 7000);
+        }
+        document.addEventListener("DOMContentLoaded", showSlides);
+    </script>
 </body>
 </html>
