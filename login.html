@@ -11,8 +11,14 @@
     <div class="card-container">
         <div class="login-section">
             <div class="login-box">
+                <div class="logo-container">
+                    <img src="/assets/LOGO1.png" alt="Logo" class="logo">
+                    <p class="logo-text">dotwork</p>
+                </div>                
+                <br>                    
                 <h1>Log in to your Account</h1>
                 <p>Welcome back! Select method to log in</p>
+                <br> 
                 <div class="social-buttons">
                     <button class="social-button google">
                         <i class="fab fa-google"></i> Google
@@ -20,6 +26,7 @@
                     <button class="social-button facebook">
                         <i class="fab fa-facebook-f"></i> Facebook
                     </button>
+                    <br>
                 </div>
                 <div class="separator">or continue with email</div>
                 <div class="input-with-icon">
@@ -32,14 +39,18 @@
                     <i class=" password-toggle" onclick="togglePassword()"></i>
                 </div>
                 <br>
-                <br>
-
                 <div class="remember-me">
-                    <label><input type="checkbox"> Remember me</label>
+                    <label>
+                        <input type="checkbox" id="remember-checkbox">Remember me</label>
                     <a href="#">Forgot Password?</a>
-                </div>
+                </div>       
+                <br>
+                <div class="error-message" id="error-message"></div>
                 <button class="login-button" onclick="handleLogin()">Log in</button>
-                <p>Don't have an account? <a href="#">Create an account</a></p>
+                <br>
+                <div class="separator"></div>
+                <br>
+                <p class="register-text"> Don't have an account? <a href="#">Create an account</a></p>                
             </div>
         </div>
         <div class="visual-section">

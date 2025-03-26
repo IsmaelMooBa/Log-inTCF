@@ -34,7 +34,7 @@ body {
 .login-box {
     width: 100%;
     max-width: 350px;
-    text-align: center;
+    text-align: left;
 }
 
 .login-box h1 {
@@ -106,7 +106,7 @@ body {
 /* Campos de entrada con iconos */
 .input-with-icon {
     position: relative;
-    width: 100%;
+    width: 80%;
     margin-bottom: 10px;
 }
 
@@ -130,17 +130,47 @@ body {
 .remember-me {
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 15px;
+    color: #888;
 }
 
 .remember-me a {
-    color: #007bff;
+    color: #094c99;
     text-decoration: none;
 }
 
 .remember-me a:hover {
     text-decoration: underline;
+}
+
+/* Estilos personalizados para el checkbox */
+.remember-me input[type="checkbox"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #888;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+/* Cuando está marcado, se pone azul */
+.remember-me input[type="checkbox"]:checked {
+    background-color: #094c99;
+    border-color: #094c99;
+}
+
+/* Agregar un check (✓) al marcar */
+.remember-me input[type="checkbox"]:checked::after {
+    content: "✓";
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    left: 3px;
+    top: -1px;
 }
 
 /* Botón de inicio de sesión */
@@ -153,10 +183,32 @@ body {
     border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
+/* Efecto hover para el botón */
 .login-button:hover {
     background-color: #0056b3;
+}
+
+/* Estilo del párrafo debajo del botón */
+.register-text {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Estilo del enlace dentro del párrafo */
+.register-text a {
+    color: #084e99;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Efecto hover en el enlace */
+.register-text a:hover {
+    text-decoration: underline;
 }
 
 /* Sección visual a la derecha */
@@ -205,3 +257,24 @@ body {
 .input-with-icon input {
     padding-right: 40px;
 }
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Espacio entre el logo y el texto */
+}
+
+.logo {
+    width: 24px; /* Ajusta el tamaño del logo según la imagen */
+    height: 24px;
+}
+
+.logo-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #094c99; /* Azul similar al de la imagen */
+    margin: 0;
+    text-transform: lowercase;
+    font-family: Arial, sans-serif;
+}
+
