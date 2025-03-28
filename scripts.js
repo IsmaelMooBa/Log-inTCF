@@ -52,18 +52,16 @@ function handleLogin() {
     alert(`Logged in with Email: ${email}, Password: ${password}, Remember Me: ${rememberMe}`);
 }
 
-// Función para mostrar u ocultar la contraseña
-function togglePassword() {
-    const passwordField = document.getElementById("password");
-    const toggleIcon = document.querySelector(".password-toggle");
-    
-    if (passwordField.type === "password") {
-        passwordField.type = "text";
-        toggleIcon.classList.remove("fa-eye");
-        toggleIcon.classList.add("fa-eye-slash");
-    } else {
-        passwordField.type = "password";
-        toggleIcon.classList.remove("fa-eye-slash");
-        toggleIcon.classList.add("fa-eye");
+    // Función para manejar el registro
+    function togglePassword() {
+        const passwordField = document.getElementById("password");
+        const toggleIcon = document.querySelector(".password-toggle");
+        
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            toggleIcon.classList.replace("fa-eye", "fa-eye-slash");
+        } else {
+            passwordField.type = "password";
+            toggleIcon.classList.replace("fa-eye-slash", "fa-eye");
+        }
     }
-}
