@@ -1,62 +1,66 @@
-let index = 0;
+let carouselIndex = 0;
 
-function showSlides() {
-    let slides = document.querySelectorAll(".carousel-images img");
-    let dots = document.querySelectorAll(".dot");
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-        dots[i].classList.remove("active");
+// Función principal del carrusel (priorizada)
+function initCarousel() {
+    function showSlides() {
+        const slides = document.querySelectorAll(".carousel-images img");
+        const dots = document.querySelectorAll(".dot");
+        
+        // Ocultar todas las slides y desactivar dots
+        slides.forEach(slide => slide.style.display = "none");
+        dots.forEach(dot => dot.classList.remove("active"));
+        
+        // Avanzar índice y reiniciar si es necesario
+        carouselIndex = (carouselIndex + 1) % slides.length;
+        
+        // Mostrar slide actual y activar dot correspondiente
+        slides[carouselIndex].style.display = "block";
+        dots[carouselIndex]?.classList.add("active");
+        
+        // Programar próximo cambio
+        setTimeout(showSlides, 7000);
     }
-    index++;
-    if (index >= slides.length) { index = 0; } // Cambiado a >= para que funcione correctamente
-    slides[index].style.display = "block";
-    dots[index].classList.add("active");
-    setTimeout(showSlides, 7000);
+
+    // Iniciar carrusel inmediatamente
+    showSlides();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    showSlides();
-
-    // Función para manejar el checkbox personalizado
+// Funciones de manejo de login
+function setupLoginHandlers() {
+    // Checkbox personalizado
     const customCheckbox = document.getElementById('customCheckbox');
     const rememberMeCheckbox = document.getElementById('rememberMe');
 
-    customCheckbox.addEventListener('click', () => {
-        rememberMeCheckbox.checked = !rememberMeCheckbox.checked;
-        customCheckbox.classList.toggle('checked', rememberMeCheckbox.checked);
-    });
+    if (customCheckbox && rememberMeCheckbox) {
+        customCheckbox.addEventListener('click', () => {
+            rememberMeCheckbox.checked = !rememberMeCheckbox.checked;
+            customCheckbox.classList.toggle('checked', rememberMeCheckbox.checked);
+        });
+    }
 
-    // Cargar el email guardado al cargar la página
+    // Cargar email guardado
     const rememberedEmail = localStorage.getItem('rememberedEmail');
     if (rememberedEmail) {
-        document.getElementById('email').value = rememberedEmail;
-        rememberMeCheckbox.checked = true;
-        customCheckbox.classList.add('checked');
-    }
-});
-
-// Función para manejar el inicio de sesión
-function handleLogin() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const rememberMe = document.getElementById('rememberMe').checked;
-
-    // Guardar en localStorage si "Remember Me" está marcado
-    if (rememberMe) {
-        localStorage.setItem('rememberedEmail', email);
-    } else {
-        localStorage.removeItem('rememberedEmail');
+        const emailField = document.getElementById('email');
+        if (emailField) emailField.value = rememberedEmail;
+        if (rememberMeCheckbox) {
+            rememberMeCheckbox.checked = true;
+            if (customCheckbox) customCheckbox.classList.add('checked');
+        }
     }
 
-    // Simular inicio de sesión (aquí iría la lógica real)
-    alert(`Logged in with Email: ${email}, Password: ${password}, Remember Me: ${rememberMe}`);
+    // Toggle de visibilidad de contraseña
+    const toggleIcon = document.querySelector(".password-toggle");
+    if (toggleIcon) {
+        toggleIcon.addEventListener('click', togglePassword);
+    }
 }
 
-    // Función para manejar el registro
-    function togglePassword() {
-        const passwordField = document.getElementById("password");
-        const toggleIcon = document.querySelector(".password-toggle");
-        
+function togglePassword() {
+    const passwordField = document.getElementById("password");
+    const toggleIcon = document.querySelector(".password-toggle");
+    
+    if (passwordField && toggleIcon) {
         if (passwordField.type === "password") {
             passwordField.type = "text";
             toggleIcon.classList.replace("fa-eye", "fa-eye-slash");
@@ -65,3 +69,40 @@ function handleLogin() {
             toggleIcon.classList.replace("fa-eye-slash", "fa-eye");
         }
     }
+}
+
+function handleLogin(event) {
+    event.preventDefault();
+    
+    const email = document.getElementById('email')?.value;
+    const password = document.getElementById('password')?.value;
+    const rememberMe = document.getElementById('rememberMe')?.checked;
+
+    if (!email || !password) {
+        alert('Por favor complete todos los campos');
+        return;
+    }
+
+    // Guardar en localStorage si "Remember Me" está marcado
+    if (rememberMe) {
+        localStorage.setItem('rememberedEmail', email);
+    } else {
+        localStorage.removeItem('rememberedEmail');
+    }
+
+    // Simular inicio de sesión
+    console.log(`Login attempt - Email: ${email}, Remember Me: ${rememberMe}`);
+    alert(`Inicio de sesión exitoso para: ${email}`);
+}
+
+// Inicialización cuando el DOM esté listo
+document.addEventListener("DOMContentLoaded", () => {
+    initCarousel(); // Prioridad al carrusel
+    setupLoginHandlers();
+    
+    // Asignar manejador de login al formulario
+    const loginForm = document.querySelector('form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', handleLogin);
+    }
+});
