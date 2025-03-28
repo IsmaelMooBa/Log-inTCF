@@ -25,6 +25,22 @@ function initCarousel() {
     showSlides();
 }
 
+// Toggle de visibilidad de contraseña
+function togglePassword() {
+    const passwordField = document.getElementById("password");
+    const toggleIcon = document.querySelector(".password-toggle");
+    
+    if (passwordField && toggleIcon) {
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            toggleIcon.classList.replace("fa-eye", "fa-eye-slash");
+        } else {
+            passwordField.type = "password";
+            toggleIcon.classList.replace("fa-eye-slash", "fa-eye");
+        }
+    }
+}
+
 // Funciones de manejo de login
 function setupLoginHandlers() {
     // Checkbox personalizado
@@ -53,21 +69,6 @@ function setupLoginHandlers() {
     const toggleIcon = document.querySelector(".password-toggle");
     if (toggleIcon) {
         toggleIcon.addEventListener('click', togglePassword);
-    }
-}
-
-function togglePassword() {
-    const passwordField = document.getElementById("password");
-    const toggleIcon = document.querySelector(".password-toggle");
-    
-    if (passwordField && toggleIcon) {
-        if (passwordField.type === "password") {
-            passwordField.type = "text";
-            toggleIcon.classList.replace("fa-eye", "fa-eye-slash");
-        } else {
-            passwordField.type = "password";
-            toggleIcon.classList.replace("fa-eye-slash", "fa-eye");
-        }
     }
 }
 
