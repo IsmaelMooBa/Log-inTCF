@@ -36,7 +36,7 @@
                 <div class="input-with-icon password-container">
                     <i class="fas fa-lock"></i>
                     <input type="password" placeholder="Password" class="input-field" id="password">
-                    <i class=" password-toggle" onclick="togglePassword()"></i>
+                    <i class="password-toggle" onclick="togglePassword()"></i>
                 </div>
                 <br>
                 <div class="remember-me">
@@ -80,12 +80,41 @@
                 dots[i].classList.remove("active");
             }
             index++;
-            if (index > slides.length) { index = 1; }
-            slides[index - 1].style.display = "block";
-            dots[index - 1].classList.add("active");
+            if (index >= slides.length) { index = 0; }
+            slides[index].style.display = "block";
+            dots[index].classList.add("active");
             setTimeout(showSlides, 7000);
         }
         document.addEventListener("DOMContentLoaded", showSlides);
+
+        function handleLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const rememberMe = document.getElementById('remember-checkbox').checked;
+
+            if (rememberMe) {
+                localStorage.setItem('rememberedEmail', email);
+            } else {
+                localStorage.removeItem('rememberedEmail');
+            }
+
+            alert(`Logged in with Email: ${email}, Password: ${password}, Remember Me: ${rememberMe}`);
+        }
+
+        function togglePassword() {
+            const passwordField = document.getElementById("password");
+            const toggleIcon = document.querySelector(".password-toggle");
+            
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                toggleIcon.classList.remove("fa-eye");
+                toggleIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                toggleIcon.classList.remove("fa-eye-slash");
+                toggleIcon.classList.add("fa-eye");
+            }
+        }
     </script>
 </body>
 </html>

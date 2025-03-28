@@ -64,20 +64,16 @@ body {
     border: 1px solid #ddd;
     cursor: pointer;
     font-size: 14px;
-}
-
-.social-button i {
-    margin-right: 8px;
+    background-color: transparent; /* Sin color de fondo */
+    color: inherit; /* Hereda el color del texto */
 }
 
 .social-button.google {
-    border-color: #db4437;
-    color: #db4437;
+    border-color: #ddd; /* Cambia el color del borde */
 }
 
 .social-button.facebook {
-    border-color: #1877f2;
-    color: #1877f2;
+    border-color: #ddd; /* Cambia el color del borde */
 }
 
 /* Separador */
