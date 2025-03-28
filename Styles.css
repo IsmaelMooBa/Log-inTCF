@@ -114,7 +114,7 @@ body {
 
 .input-with-icon i {
     position: absolute;
-    left: 12px;
+    right: 12px; /* Cambiado de left a right */
     top: 50%;
     transform: translateY(-50%);
     color: #888;
@@ -126,6 +126,7 @@ body {
     border: 1px solid #ddd;
     border-radius: 6px;
     box-sizing: border-box;
+    padding-right: 40px; /* Para evitar que el texto se sobreponga al icono */
 }
 
 /* Estilos específicos para el campo de contraseña */
@@ -137,17 +138,21 @@ body {
 
 .password-toggle {
     position: absolute;
-    right: 12px;
+    right: 12px; /* Ahora el icono está en la derecha */
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
     color: #888;
-    z-index: 2;
+    font-size: 18px; /* Tamaño adecuado */
+    z-index: 10;
+    background: none;
+    border: none;
 }
 
 .password-container .input-field {
-    padding-right: 40px; /* Asegura que el texto no se solape con el icono */
+    padding-right: 40px; /* Espacio para el icono del ojo */
 }
+
 
 /* Recordar contraseña */
 .remember-me {
