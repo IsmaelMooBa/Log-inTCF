@@ -14,8 +14,9 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     overflow: hidden;
-    width: 900px;
+    width: 1100px; /* Aumentado desde 900px */
 }
+
 .form-container {
     flex: 1;
     padding: 40px;
