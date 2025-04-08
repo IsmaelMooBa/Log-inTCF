@@ -61,6 +61,24 @@ document.addEventListener("DOMContentLoaded", function () {
     let dots = document.querySelectorAll(".carousel-indicators .dot");
 
     function showSlides() {
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener("click", () => {
+                slideIndex = index;
+                showManualSlide(index);
+            });
+        });
+        
+        function showManualSlide(index) {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                dots[i].classList.remove("active");
+            }
+        
+            slides[index].style.display = "block";
+            dots[index].classList.add("active");
+        }
+        
         for (let i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
             dots[i].classList.remove("active");
