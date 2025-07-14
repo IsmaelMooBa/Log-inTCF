@@ -306,7 +306,7 @@ body {
 /* Superposición del texto */
 .carousel-overlay {
     position: absolute;
-    bottom: 40px; /* Justo encima de los indicadores */
+    bottom: 40px;
     left: 0;
     width: 100%;
     text-align: center;
@@ -322,16 +322,16 @@ body {
     font-size: 22px;
     margin: 0 0 10px;
     font-weight: bold;
-    color: rgb(0, 0, 0); /* Cambié a blanco para mejor contraste */
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Sombra para mejor legibilidad */
+    color: rgb(0, 0, 0); 
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5); 
 }
 
 .carousel-overlay p {
     font-size: 14px;
     margin: 0;
     color: white;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* Sombra para mejor legibilidad */
-    position: static; /* Elimina posicionamiento absoluto si lo tenía */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5); 
+    position: static; 
 }
 
 .carousel-indicators {

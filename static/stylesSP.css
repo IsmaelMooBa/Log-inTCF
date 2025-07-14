@@ -42,7 +42,7 @@ body {
 }
 .input-field {
     width: 100%;
-    padding: 12px 12px 12px 35px; /* Espacio para el icono */
+    padding: 12px 12px 12px 35px; 
     border: 1px solid #ddd;
     border-radius: 6px;
     box-sizing: border-box;
@@ -90,12 +90,12 @@ body {
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 10px; /* Espacio entre el logo y el texto */
+    gap: 10px; 
     margin-bottom: 20px;
 }
 
 .logo {
-    height: 40px; /* Ajusta el tamaño según sea necesario */
+    height: 40px;
 }
 
 .logo-text {
