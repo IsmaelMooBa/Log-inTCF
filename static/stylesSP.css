@@ -176,3 +176,73 @@ body {
   color: var(--icons);
 }
 
+@media (max-width: 1024px) {
+  .container {
+    width: 90%;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .form-container,
+  .visual-section {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .form-container h2 {
+    font-size: 20px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+
+  .input-field {
+    font-size: 14px;
+    padding: 10px 12px 10px 35px;
+  }
+
+  .btn {
+    font-size: 15px;
+  }
+
+  .back-link {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-container {
+    justify-content: center;
+  }
+
+  .logo-text {
+    font-size: 18px;
+  }
+
+  .form-container h2 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .visual-section {
+    padding: 10px;
+  }
+
+  .visual-section img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  #theme-switch {
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    right: 10px;
+  }
+}

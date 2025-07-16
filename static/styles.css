@@ -450,3 +450,94 @@ body {
 .darkmode #theme-switch svg:last-child{
     display: block;
 }
+
+@media (max-width: 1024px) {
+  .card-container {
+    height: auto;
+  }
+
+  .carousel-overlay h2 {
+    font-size: 18px;
+  }
+
+  .carousel-overlay p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+  }
+
+  .login-section,
+  .visual-section {
+    width: 100%;
+    padding: 20px;
+    flex: none;
+  }
+
+  .login-box {
+    max-width: 100%;
+  }
+
+  .illustration img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .carousel-overlay h2 {
+    font-size: 16px;
+  }
+
+  .carousel-overlay p {
+    font-size: 12px;
+  }
+
+  .input-field {
+    padding: 10px 35px 10px 35px;
+  }
+
+  .social-buttons {
+    flex-direction: column;
+  }
+
+  .social-button {
+    width: 100%;
+  }
+
+  #theme-switch {
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-box h1 {
+    font-size: 20px;
+  }
+
+  .carousel-overlay h2 {
+    font-size: 14px;
+  }
+
+  .carousel-overlay p {
+    font-size: 12px;
+  }
+
+  .separator {
+    font-size: 12px;
+  }
+
+  .logo-text {
+    font-size: 14px;
+  }
+
+  .register-text {
+    font-size: 13px;
+  }
+}
