@@ -13,11 +13,11 @@
 
 .darkmode {
   --bg-color: #1e1e1e;
-  --text-color: #f5f5f5;
+  --text-color: #e2e2e2;
   --input-bg: #383838;
   --button-bg: #2465a1;
   --button-text: #f5f5f5;
-  --frombgcolor: #474646;
+  --frombgcolor: #535353;
   --logotext: #1a74db;
   --textinput: #bebebe;
   --icons: #9e9b9b;
@@ -52,7 +52,7 @@ body {
 }
 .form-container h2 {
     font-size: 22px;
-    color: #222;
+    color: var(--text-color);
     margin-bottom: 10px;
 }
 .input-with-icon {
